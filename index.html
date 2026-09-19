@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatización de datos para consultoría ambiental</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brandDark: '#0D1117',
+            cardBg: '#161B22',
+            cardBgElevated: '#1F242C',
+            accentGreen: '#00E676',
+            accentBlue: '#2979FF',
+            borderSubtle: '#30363D',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0D1117;
+      color: #E6EDF3;
+      font-family: 'Inter', sans-serif;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .glass-card {
+      background: rgba(22, 27, 34, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-pill {
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .glow-green {
+      box-shadow: 0 0 25px -5px rgba(0, 230, 118, 0.35);
+    }
+    .glow-blue {
+      box-shadow: 0 0 25px -5px rgba(41, 121, 255, 0.35);
+    }
+    .browser-frame {
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+    /* Preservar nitidez máxima sin compresión ni suavizado excesivo */
+    .crisp-img {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  </style>
+</head>
+<body class="bg-brandDark text-[#E6EDF3] antialiased selection:bg-accentGreen selection:text-black">
+
+  <!-- Top Floating Action Bar -->
+  <header class="fixed top-5 right-6 z-50">
+    <a href="#contacto" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accentGreen text-[#0D1117] font-bold text-sm shadow-lg hover:shadow-accentGreen/40 hover:scale-105 active:scale-95 transition-all duration-200 glow-green">
+      <span>Agendar Consultoría</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+      </svg>
+    </a>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 space-y-16">
+
+    <!-- 1. Encabezado -->
+    <section class="text-center pt-8 sm:pt-14 pb-4 max-w-3xl mx-auto relative">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-accentGreen bg-accentGreen/10 border border-accentGreen/20 mb-6">
+        <span class="w-2 h-2 rounded-full bg-accentGreen animate-pulse"></span>
+        Flujos Automatizados &amp; Consultoría Técnica
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-5">
+        Automatización de datos para consultoría ambiental
+      </h1>
+      <p class="text-base sm:text-xl font-light text-[#8B949E] leading-relaxed">
+        Optimización de flujos operativos de campo, análisis de biodiversidad y generación de entregables técnicos en tiempo récord.
+      </p>
+
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="#soluciones" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-cardBg border border-borderSubtle text-sm font-medium text-white hover:border-accentBlue/60 hover:bg-cardBgElevated transition-all">
+          <span>Explorar Soluciones</span>
+          <svg class="w-4 h-4 text-accentBlue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Subtitle divider -->
+    <div id="soluciones" class="h-px w-full bg-gradient-to-r from-transparent via-borderSubtle to-transparent"></div>
+
+    <!-- 2. Tres Bloques de Servicios -->
+
+    <!-- ============================================== -->
+    <!-- BLOQUE 1: Automatización de Formatos y Anexos -->
+    <!-- ============================================== -->
+    <section class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-2 max-w-2xl">
+          <div class="inline-flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#8B949E]">Servicio 01</span>
+            <span class="text-borderSubtle">•</span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-accentGreen/15 text-accentGreen border border-accentGreen/30">[+] Obtén flujos que resuelven horas de trabajo manual en un par de minutos</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Automatización de Formatos y Anexos de Fauna
+          </h2>
+          <p class="text-sm sm:text-base text-[#8B949E] font-normal leading-relaxed">
+            Diligenciamiento masivo de plantillas de campo, inserción de fotos, exportación a PDF y consolidación cruzada con catálogo biológico.
+          </p>
+        </div>
+
+        <!-- Carousel navigation buttons -->
+        <div class="flex items-center gap-2 self-end">
+          <span class="text-xs text-[#8B949E] mr-2">Deslizar galería</span>
+          <button onclick="document.getElementById('carrusel-bloque1').scrollBy({left: -380, behavior: 'smooth'})" class="p-2.5 rounded-xl bg-cardBg border border-borderSubtle text-gray-300 hover:text-white hover:border-accentGreen hover:bg-cardBgElevated transition-all active:scale-95 cursor-pointer" title="Anterior">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+            </svg>
+          </button>
+          <button onclick="document.getElementById('carrusel-bloque1').scrollBy({left: 380, behavior: 'smooth'})" class="p-2.5 rounded-xl bg-cardBg border border-borderSubtle text-gray-300 hover:text-white hover:border-accentGreen hover:bg-cardBgElevated transition-all active:scale-95 cursor-pointer" title="Siguiente">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Carousel Cards: Formatos -->
+      <div class="relative">
+        <div id="carrusel-bloque1" class="flex gap-6 overflow-x-auto hide-scrollbar pb-4 pt-1 snap-x snap-mandatory">
+          
+          <!-- Card 1: anexo_1.jpg -->
+          <div class="snap-start shrink-0 w-[300px] sm:w-[340px] lg:w-[360px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[170px] cursor-pointer" onclick="openLightbox('capturas/anexo_1.jpg', 'Diligenciamiento de información')">
+              <img src="capturas/anexo_1.jpg" alt="Diligenciamiento de información" class="w-full h-auto max-h-[180px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Paso 1 · Excel XLSM
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">Diligenciamiento de información</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Diligenciamiento masivo de plantillas de campo y cruce taxonómico automático.</p>
+          </div>
+
+          <!-- Card 2: anexo_2.jpg -->
+          <div class="snap-start shrink-0 w-[300px] sm:w-[340px] lg:w-[360px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[170px] cursor-pointer" onclick="openLightbox('capturas/anexo_2.jpg', 'Inserción de fotografías')">
+              <img src="capturas/anexo_2.jpg" alt="Inserción de fotografías" class="w-full h-auto max-h-[180px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Paso 2 · Registro Fotográfico
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">Inserción de fotografías</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Posicionamiento y escala automática de registros fotográficos organizados por taxón.</p>
+          </div>
+
+          <!-- Card 3: anexo_3.jpg -->
+          <div class="snap-start shrink-0 w-[300px] sm:w-[340px] lg:w-[360px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[170px] cursor-pointer" onclick="openLightbox('capturas/anexo_3.jpg', 'Compilación en PDF')">
+              <img src="capturas/anexo_3.jpg" alt="Compilación en PDF" class="w-full h-auto max-h-[180px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Paso 3 · PDF Oficial
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">Compilación en PDF</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Exportación desatendida y compilación agrupada por grupo zoológico.</p>
+          </div>
+
+          <!-- Card 4: anexo_4.jpg -->
+          <div class="snap-start shrink-0 w-[300px] sm:w-[340px] lg:w-[360px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[170px] cursor-pointer" onclick="openLightbox('capturas/anexo_4.jpg', 'BD Consolidada')">
+              <img src="capturas/anexo_4.jpg" alt="BD Consolidada" class="w-full h-auto max-h-[180px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Paso 4 · Base Consolidada
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">BD Consolidada</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Consolidación final y cruce con catálogo biológico oficial.</p>
+          </div>
+
+        </div>
+        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-brandDark via-brandDark/70 to-transparent z-10 hidden sm:block"></div>
+      </div>
+
+      <!-- Indicators dots -->
+      <div class="flex justify-center gap-1.5 pt-1">
+        <span class="w-6 h-1.5 rounded-full bg-accentGreen"></span>
+        <span class="w-2 h-1.5 rounded-full bg-borderSubtle"></span>
+        <span class="w-2 h-1.5 rounded-full bg-borderSubtle"></span>
+        <span class="w-2 h-1.5 rounded-full bg-borderSubtle"></span>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-borderSubtle to-transparent"></div>
+
+    <!-- ============================================== -->
+    <!-- BLOQUE 2: Dashboard de Gestión de Fauna -->
+    <!-- ============================================== -->
+    <section class="space-y-6">
+      <div class="space-y-2 max-w-3xl">
+        <div class="inline-flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#8B949E]">Servicio 02</span>
+          <span class="text-borderSubtle">•</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-accentGreen/15 text-accentGreen border border-accentGreen/30">[+] Visualiza los principales KPIs del proyecto para mejorar la toma de decisiones</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          Dashboard de Gestión de Fauna
+        </h2>
+        <p class="text-sm sm:text-base text-[#8B949E] font-normal leading-relaxed">
+          Panel con KPIs de rescate, ahuyentamiento, reubicación y mortalidad, con versión web interactiva.
+        </p>
+      </div>
+
+      <!-- Browser Mockup Window -->
+      <div class="relative group pt-4">
+        <!-- Browser Window Container -->
+        <div class="browser-frame rounded-2xl overflow-hidden bg-cardBg border border-borderSubtle transition-all duration-300 hover:border-accentBlue/40">
+          <!-- Window Header Chrome -->
+          <div class="bg-[#12161E] px-4 py-3 border-b border-borderSubtle flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-[#FF5F56]/80"></div>
+              <div class="w-3 h-3 rounded-full bg-[#FFBD2E]/80"></div>
+              <div class="w-3 h-3 rounded-full bg-[#27C93F]/80"></div>
+            </div>
+            <div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0D1117]/80 border border-borderSubtle text-[11px] font-mono text-gray-400">
+              <svg class="w-3 h-3 text-accentGreen" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"></path>
+              </svg>
+              <span>fauna-dashboard.netlify.app</span>
+            </div>
+            <div class="w-12"></div>
+          </div>
+
+          <!-- Browser Body (Image) -->
+          <div class="relative bg-[#0A0D12] overflow-hidden flex items-center justify-center p-2 sm:p-4 cursor-pointer" onclick="openLightbox('capturas/dashboard.jpg', 'Dashboard de Gestión de Fauna interactivo')">
+            <img src="capturas/dashboard.jpg" alt="Dashboard de Gestión de Fauna interactivo" class="w-full h-auto max-h-[620px] object-contain rounded-lg transition-transform duration-500 hover:scale-[1.008]">
+          </div>
+        </div>
+
+        <!-- Prominent Button -->
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://fauna-dashboard.netlify.app/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-accentBlue text-white font-bold text-base shadow-lg hover:shadow-accentBlue/40 hover:bg-[#1E6BFB] active:scale-98 transition-all duration-200 glow-blue">
+            <span>Ver demo en vivo</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-borderSubtle to-transparent"></div>
+
+    <!-- ============================================== -->
+    <!-- BLOQUE 3: Reportes Técnicos Automatizados -->
+    <!-- ============================================== -->
+    <section class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-2 max-w-2xl">
+          <div class="inline-flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#8B949E]">Servicio 03</span>
+            <span class="text-borderSubtle">•</span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-accentGreen/15 text-accentGreen border border-accentGreen/30">[+] Actualiza tus reportes mensuales en menos de 5 minutos</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Reportes Técnicos Automatizados de Fauna
+          </h2>
+          <p class="text-sm sm:text-base text-[#8B949E] font-normal leading-relaxed">
+            Limpieza de datos, tablas ecológicas, análisis de abundancia y riqueza, redacción automática y compilación en PDF.
+          </p>
+        </div>
+
+        <!-- Carousel navigation buttons -->
+        <div class="flex items-center gap-2 self-end">
+          <span class="text-xs text-[#8B949E] mr-2">Deslizar galería</span>
+          <button onclick="document.getElementById('carrusel-bloque3').scrollBy({left: -380, behavior: 'smooth'})" class="p-2.5 rounded-xl bg-cardBg border border-borderSubtle text-gray-300 hover:text-white hover:border-accentGreen hover:bg-cardBgElevated transition-all active:scale-95 cursor-pointer" title="Anterior">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+            </svg>
+          </button>
+          <button onclick="document.getElementById('carrusel-bloque3').scrollBy({left: 380, behavior: 'smooth'})" class="p-2.5 rounded-xl bg-cardBg border border-borderSubtle text-gray-300 hover:text-white hover:border-accentGreen hover:bg-cardBgElevated transition-all active:scale-95 cursor-pointer" title="Siguiente">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Carousel Cards: PDF Mockup and Report Pages (5 cards) -->
+      <div class="relative">
+        <div id="carrusel-bloque3" class="flex gap-6 overflow-x-auto hide-scrollbar pb-4 pt-1 snap-x snap-mandatory">
+          
+          <!-- Card 1: reporte_1.jpg -->
+          <div class="snap-start shrink-0 w-[280px] sm:w-[320px] lg:w-[335px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[220px] cursor-pointer" onclick="openLightbox('capturas/reporte_1.jpg', 'Portada del informe técnico')">
+              <img src="capturas/reporte_1.jpg" alt="Portada del informe técnico" class="w-full h-auto max-h-[240px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Portada Técnica
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">Vista Previa de Documento (PDF)</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Estructura reproducible de informes con portada técnica y maquetación editorial lista para entrega.</p>
+          </div>
+
+          <!-- Card 2: reporte_2.jpg -->
+          <div class="snap-start shrink-0 w-[280px] sm:w-[320px] lg:w-[335px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[220px] cursor-pointer" onclick="openLightbox('capturas/reporte_2.jpg', 'Tabla de contenidos')">
+              <img src="capturas/reporte_2.jpg" alt="Tabla de contenidos" class="w-full h-auto max-h-[240px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Tabla de Contenidos
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">Estructura y tabla de contenidos</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Estructura temática, metodologías, resultados y anexos organizados automáticamente.</p>
+          </div>
+
+          <!-- Card 3: reporte_3.jpg -->
+          <div class="snap-start shrink-0 w-[280px] sm:w-[320px] lg:w-[335px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[220px] cursor-pointer" onclick="openLightbox('capturas/reporte_3.jpg', 'Gráficos de abundancia y riqueza taxonómica')">
+              <img src="capturas/reporte_3.jpg" alt="Gráficos de abundancia y riqueza taxonómica" class="w-full h-auto max-h-[240px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Gráficos Ecológicos
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">Visualización y riqueza ecológica</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Generación paramétrica de gráficos de abundancia por especie, clase y porcentajes de manejo operativo.</p>
+          </div>
+
+          <!-- Card 4: reporte_4.jpg -->
+          <div class="snap-start shrink-0 w-[280px] sm:w-[320px] lg:w-[335px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[220px] cursor-pointer" onclick="openLightbox('capturas/reporte_4.jpg', 'Tablas jerárquicas de especies e indicadores de conservación')">
+              <img src="capturas/reporte_4.jpg" alt="Tablas jerárquicas de especies e indicadores de conservación" class="w-full h-auto max-h-[240px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Tablas Jerárquicas
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">Tablas normalizadas CITES / UICN</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Compilación automática de taxonomía, abundancias por área y estados de conservación biológica.</p>
+          </div>
+
+          <!-- Card 5: reporte_5.jpg -->
+          <div class="snap-start shrink-0 w-[280px] sm:w-[320px] lg:w-[335px] bg-cardBg rounded-2xl border border-borderSubtle p-4 hover:border-accentGreen/50 hover:bg-cardBgElevated transition-all duration-300 transform hover:-translate-y-1 group shadow-lg">
+            <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0A0D12] relative mb-3 flex items-center justify-center p-2 min-h-[220px] cursor-pointer" onclick="openLightbox('capturas/reporte_5.jpg', 'Muestrario fotográfico de fauna en informe')">
+              <img src="capturas/reporte_5.jpg" alt="Muestrario fotográfico de fauna en informe" class="w-full h-auto max-h-[240px] object-contain group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10 pointer-events-none">
+                Catálogo Fotográfico
+              </div>
+            </div>
+            <h3 class="text-base font-semibold text-white group-hover:text-accentGreen transition-colors">Anexos fotográficos y pies de figura</h3>
+            <p class="text-xs text-[#8B949E] mt-1 line-clamp-2">Composición automática de grillas fotográficas con referencias cruzadas en el texto técnico.</p>
+          </div>
+
+        </div>
+        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-brandDark via-brandDark/70 to-transparent z-10 hidden sm:block"></div>
+      </div>
+
+      <!-- Indicators dots (5 dots) -->
+      <div class="flex justify-center gap-1.5 pt-1">
+        <span class="w-6 h-1.5 rounded-full bg-accentGreen"></span>
+        <span class="w-2 h-1.5 rounded-full bg-borderSubtle"></span>
+        <span class="w-2 h-1.5 rounded-full bg-borderSubtle"></span>
+        <span class="w-2 h-1.5 rounded-full bg-borderSubtle"></span>
+        <span class="w-2 h-1.5 rounded-full bg-borderSubtle"></span>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-borderSubtle to-transparent"></div>
+
+    <!-- ============================================== -->
+    <!-- 3. Cierre de Contacto (Rediseño Glassmorphism) -->
+    <!-- ============================================== -->
+    <section id="contacto" class="relative pt-4">
+      <div class="glass-card rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden border border-borderSubtle shadow-2xl">
+        <!-- Ambient lighting blobs inside card -->
+        <div class="absolute -top-24 -left-24 w-72 h-72 bg-accentGreen/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-accentBlue/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-cardBgElevated border border-borderSubtle flex items-center justify-center text-accentGreen">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
+            </svg>
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">¿Listo para automatizar tus flujos de consultoría?</h2>
+
+          <!-- Action Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <!-- LinkedIn Button -->
+            <a href="https://www.linkedin.com/in/santosgab/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#0077B5] hover:bg-[#006097] text-white font-bold text-base shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+              </svg>
+              <span>Conectar en LinkedIn</span>
+            </a>
+
+            <!-- Direct Email Button -->
+            <a href="mailto:gabrielsantosjc7@gmail.com" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-accentGreen hover:bg-[#00C853] text-[#0D1117] font-bold text-base shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 glow-green">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
+              </svg>
+              <span>Enviar un Correo Directo</span>
+            </a>
+          </div>
+
+          <div class="pt-2 text-xs text-[#8B949E]">
+            Sin intermediarios ni agencias • Consultoría independiente
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Notice -->
+  <footer class="text-center py-6 text-xs text-[#8B949E] border-t border-borderSubtle/50">
+    <p>© Todos los derechos reservados. Casos de estudio y capturas mostrados con fines demostrativos técnicos.</p>
+  </footer>
+
+  <!-- Lightbox Modal for 100% crisp full-resolution viewing -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md items-center justify-center p-4" onclick="closeLightbox(event)">
+    <div class="relative max-w-6xl max-h-[92vh] w-full flex flex-col items-center">
+      <div class="w-full flex items-center justify-between pb-3 text-white">
+        <span id="lightbox-caption" class="text-sm sm:text-base font-semibold text-gray-200 truncate pr-4"></span>
+        <button onclick="closeLightbox(event, true)" class="p-2 rounded-lg bg-cardBg border border-borderSubtle text-gray-300 hover:text-white hover:border-accentGreen transition-colors cursor-pointer" aria-label="Cerrar vista ampliada">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="w-full max-h-[84vh] overflow-auto rounded-xl border border-borderSubtle bg-[#0A0D12] flex items-center justify-center p-2">
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded select-none">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src, title) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      img.src = src;
+      img.alt = title;
+      caption.textContent = title;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e, force = false) {
+      if (force || e.target.id === 'lightbox-modal') {
+        const modal = document.getElementById('lightbox-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('lightbox-modal');
+        if (!modal.classList.contains('hidden')) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
