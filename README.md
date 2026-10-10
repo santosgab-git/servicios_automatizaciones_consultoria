@@ -76,4 +76,4 @@ El proyecto está preparado para publicarse inmediatamente sin requerir pasos de
 ## 📬 Contacto
 
 - **LinkedIn**: [santosgab](https://www.linkedin.com/in/santosgab/)
-- **Correo Directo**: [gabrielsantosjc7@gmail.com](mailto:gabrielsantosjc7@gmail.com)
+- **Correo Directo**: [gabosantos023@gmail.com](mailto:gabosantos023@gmail.com)
